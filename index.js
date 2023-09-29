@@ -1,12 +1,10 @@
 import express from 'express'
-import mongoose, { mongo } from 'mongoose';
+import MongoConnection from './config/db.js'
 import cors from 'cors'
 // import './config/db.js'
 const app = express();
 
-mongoose.connect('mongodb+srv://atharvagadkari05:<password>@cluster0.p5nxgv5.mongodb.net/?retryWrites=true&w=majority').then(()=>{
-    console.log("Database connected")
-})
+MongoConnection();
 
 
 const PORT = process.env.PORT || 5000

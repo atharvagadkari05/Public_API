@@ -1,9 +1,16 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
-mongoose.connect('mongodb+srv://atharvagadkari05:atharva@database@cluster0.p5nxgv5.mongodb.net/?retryWrites=true&w=majority')
- .then(() => console.log('DATABASE CONNECTED'))
- .catch(err => {
-  console.log('DATABASE CONNECTION ERROR', err)
-  process.exit(1)
+const mongooseConnect = async ()=>{
+  await mongoose.connect('mongodb+srv://atharvagadkari05:atharva1418@cluster0.p5nxgv5.mongodb.net/?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 })
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch((error) => {
+  console.error('Error connecting to MongoDB :', error);
+});
+}
 
+export default mongooseConnect
