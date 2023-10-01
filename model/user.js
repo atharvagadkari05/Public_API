@@ -43,8 +43,10 @@ userSchema.pre('save', async function (next) {
 })
 
 userSchema.virtual('posts',{
-    ref : 'posts',
-    local_id : '_id',
-    foreign_id : 'UserId',
-    justOne:false,
+    ref: 'user',
+    localField: 'UserId',
+    foreignField: '_id',
+    justOne: true
 })
+
+export default mongoose.model('user', userSchema);
